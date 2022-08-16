@@ -19,25 +19,26 @@ public final class RedWorldguardFlags extends JavaPlugin implements Listener {
     @Override
     public void onEnable() {
 
-        //register Events with Bukkit
+        // register Events with Bukkit
         getServer().getPluginManager().registerEvents(new BlockDispenseEvent(this), this);
     }
 
     @Override
     public void onLoad() {
 
-        //register WorldGuard flags
-        this.register_flag(new StateFlag("dispense-nbt-spawneggs", true)); //Registering the flag on Load (Important)
+        // register WorldGuard flags
+        this.register_flag(new StateFlag("dispense-nbt-spawneggs", true));
+        this.register_flag(new StateFlag("vehicle-entity-collision", true));
     }
 
     /**
-     * Registering a Flag with Worldguard and saving it inside the HashMap
+     * Registering a Flag with WorldGuard and saving it inside the HashMap
      *
      * @param flag The new Flag to register
      */
     @SuppressWarnings("DuplicatedCode")
     private void register_flag(Flag<?> flag) {
-        //Code modified from: https://worldguard.enginehub.org/en/latest/developer/regions/custom-flags/#registering-new-flags
+        // Code modified from: https://worldguard.enginehub.org/en/latest/developer/regions/custom-flags/#registering-new-flags
         FlagRegistry registry = WorldGuard.getInstance().getFlagRegistry();
         if (this.flags == null) {
             this.flags = new HashMap<>();
@@ -66,9 +67,9 @@ public final class RedWorldguardFlags extends JavaPlugin implements Listener {
     }
 
     /**
-     * Gets flags Haspmap.
+     * Gets flags HashMap.
      *
-     * @return the flags Hashmap
+     * @return the flags HashMap
      */
     public HashMap<Class<?>, HashMap<String, Flag<?>>> getFlags() {
         return flags;
