@@ -6,6 +6,7 @@ import com.sk89q.worldguard.protection.flags.StateFlag;
 import com.sk89q.worldguard.protection.flags.registry.FlagConflictException;
 import com.sk89q.worldguard.protection.flags.registry.FlagRegistry;
 import de.xaver106.redworldguardflags.listeners.BlockDispenseEvent;
+import de.xaver106.redworldguardflags.listeners.VehicleEntityCollisionEvent;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -21,6 +22,7 @@ public final class RedWorldguardFlags extends JavaPlugin implements Listener {
 
         // register Events with Bukkit
         getServer().getPluginManager().registerEvents(new BlockDispenseEvent(this), this);
+        getServer().getPluginManager().registerEvents(new VehicleEntityCollisionEvent(this), this);
     }
 
     @Override
