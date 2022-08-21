@@ -23,7 +23,7 @@ public class VehicleEntityCollisionEvent implements Listener {
     }
 
     @EventHandler
-    public void onVehicleEntityCollisionEvent(org.bukkit.event.vehicle.VehicleEntityCollisionEvent event) {
+    public void onVehicleEntityCollision(org.bukkit.event.vehicle.VehicleEntityCollisionEvent event) {
         // WorldGuard Query
         RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
         RegionQuery query = container.createQuery();

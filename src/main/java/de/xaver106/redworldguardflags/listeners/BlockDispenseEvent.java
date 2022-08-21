@@ -24,7 +24,7 @@ public class BlockDispenseEvent implements Listener {
     }
 
     @EventHandler
-    public void onBlockDispenseEvent(org.bukkit.event.block.BlockDispenseEvent event) {
+    public void onBlockDispense(org.bukkit.event.block.BlockDispenseEvent event) {
         // WorldGuard Query
         RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
         RegionQuery query = container.createQuery();
