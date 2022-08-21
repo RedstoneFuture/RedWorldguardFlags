@@ -24,8 +24,8 @@ public class BlockDispenseEvent implements Listener {
     }
 
     @EventHandler
-    public void onBlockDispenseEvent(org.bukkit.event.block.BlockDispenseEvent event) {
-        //Worldguard Query
+    public void onBlockDispense(org.bukkit.event.block.BlockDispenseEvent event) {
+        // WorldGuard Query
         RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
         RegionQuery query = container.createQuery();
         ApplicableRegionSet set = query.getApplicableRegions(BukkitAdapter.adapt(event.getBlock().getLocation()));
@@ -33,14 +33,14 @@ public class BlockDispenseEvent implements Listener {
         // Check if the flag applies and if it is set to deny
         if (!set.testState(null, (StateFlag) plugin.getFlags().get(StateFlag.class).get("dispense-nbt-spawneggs"))) {
 
-            //test if the item is a SpawnEgg and has the EntityTag NBT tag
+            // Check if the item is a SpawnEgg and has the EntityTag NBT tag
             NBTItem nbtItem = new NBTItem(event.getItem());
             if (nbtItem.hasKey("EntityTag") && event.getItem().getType().toString().contains("SPAWN_EGG")) {
                 event.setCancelled(true);
 
-                //get BlockState to delete all illegal items inside
+                // Get BlockState to delete all illegal items inside
                 Dispenser dispenser = (Dispenser) event.getBlock().getState();
-                new BukkitRunnable() {  //Create runnable to delete all items after a tick (necessary)
+                new BukkitRunnable() {  // Create runnable to delete all items after a tick (necessary)
                     public void run() {
                         dispenser.getSnapshotInventory().remove(event.getItem().getType());
                         dispenser.update();
