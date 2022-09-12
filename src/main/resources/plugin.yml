@@ -1,6 +1,6 @@
 name: RedWorldguardFlags
 version: '${version}'
 main: de.xaver106.redworldguardflags.RedWorldguardFlags
-api-version: 1.18
+api-version: 1.19
 depend: [ WorldGuard, NBTAPI ]
 authors: [ Xaver106 ]
