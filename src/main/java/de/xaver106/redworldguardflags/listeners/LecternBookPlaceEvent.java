@@ -45,12 +45,10 @@ public class LecternBookPlaceEvent implements Listener {
             if (block.getType() != Material.LECTERN) return;
 
             BlockState state = block.getState();
-            if (!(state instanceof InventoryHolder)) return;
-            InventoryHolder holder = (InventoryHolder) state;
+            if (!(state instanceof InventoryHolder holder)) return;
 
             Inventory inventory = holder.getInventory();
-            if (!(inventory instanceof LecternInventory)) return;
-            LecternInventory lecternInventory = (LecternInventory) inventory;
+            if (!(inventory instanceof LecternInventory lecternInventory)) return;
 
             lecternInventory.setBook(item);
         }
