@@ -21,6 +21,12 @@ public class LecternBookPlaceEvent implements Listener {
 
     private final RedWorldguardFlags plugin;
 
+    /**
+     * Players can open books at the lectern when the "Interact" flag is enabled. They can
+     * also take the books if the "chest-access" flag is enabled. But to place a book on
+     * an empty lectern, natively the player must have build rights ("use" flag). For this
+     * purpose, there is now the new "lectern-book-place" flag that has been implemented here.
+     */
     public LecternBookPlaceEvent(RedWorldguardFlags plugin) {
 
         this.plugin = plugin;
