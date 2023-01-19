@@ -1,7 +1,8 @@
 # RedWorldguardFlags
-Extra Flags used on the redstoneworld.de server.
+New helpful [WorldGuard](https://dev.bukkit.org/projects/worldguard) Flags provided and supported by
+the [RedstoneWorld](https://redstoneworld.de) development team.
 
-## Flags:
+## Flags
 
 | Flag                       | Description                                                             | Default State |
 |----------------------------|-------------------------------------------------------------------------|---------------|
