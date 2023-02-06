@@ -3,4 +3,4 @@ version: '${version}'
 main: de.xaver106.redworldguardflags.RedWorldguardFlags
 api-version: 1.19
 depend: [ WorldGuard, NBTAPI ]
-authors: [ Xaver106 ]
+authors: [ Xaver106, RedstoneFuture ]

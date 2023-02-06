@@ -5,9 +5,7 @@ import com.sk89q.worldguard.protection.flags.Flag;
 import com.sk89q.worldguard.protection.flags.StateFlag;
 import com.sk89q.worldguard.protection.flags.registry.FlagConflictException;
 import com.sk89q.worldguard.protection.flags.registry.FlagRegistry;
-import de.xaver106.redworldguardflags.listeners.BlockDispenseEvent;
-import de.xaver106.redworldguardflags.listeners.LecternBookPlaceEvent;
-import de.xaver106.redworldguardflags.listeners.VehicleEntityCollisionEvent;
+import de.xaver106.redworldguardflags.listeners.*;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -25,6 +23,7 @@ public final class RedWorldguardFlags extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(new BlockDispenseEvent(this), this);
         getServer().getPluginManager().registerEvents(new VehicleEntityCollisionEvent(this), this);
         getServer().getPluginManager().registerEvents(new LecternBookPlaceEvent(this), this);
+        getServer().getPluginManager().registerEvents(new CreatureSpawnEvent(this), this);
     }
 
     @Override
@@ -34,6 +33,8 @@ public final class RedWorldguardFlags extends JavaPlugin implements Listener {
         this.register_flag(new StateFlag("dispense-nbt-spawneggs", true));
         this.register_flag(new StateFlag("vehicle-entity-collision", true));
         this.register_flag(new StateFlag("lectern-book-place", false));
+        this.register_flag(new StateFlag("spawnegg-use", false));
+        this.register_flag(new StateFlag("spawnegg-dispense", false));
     }
 
     /**
