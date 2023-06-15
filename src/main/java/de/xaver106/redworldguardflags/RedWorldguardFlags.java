@@ -32,9 +32,9 @@ public final class RedWorldguardFlags extends JavaPlugin implements Listener {
         // register WorldGuard flags
         this.register_flag(new StateFlag("dispense-nbt-spawneggs", true));
         this.register_flag(new StateFlag("vehicle-entity-collision", true));
-        this.register_flag(new StateFlag("lectern-book-place", false));
-        this.register_flag(new StateFlag("spawnegg-use", false));
-        this.register_flag(new StateFlag("spawnegg-dispense", false));
+        this.register_flag(new StateFlag("lectern-book-place", true));
+        this.register_flag(new StateFlag("spawnegg-use", true));
+        this.register_flag(new StateFlag("spawnegg-dispense", true));
     }
 
     /**

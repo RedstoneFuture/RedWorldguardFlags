@@ -10,6 +10,7 @@ import de.tr7zw.nbtapi.NBTItem;
 import de.xaver106.redworldguardflags.RedWorldguardFlags;
 import org.bukkit.block.Dispenser;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.scheduler.BukkitRunnable;
 
@@ -23,7 +24,7 @@ public class BlockDispenseEvent implements Listener {
 
     }
 
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGH)
     public void onBlockDispense(org.bukkit.event.block.BlockDispenseEvent event) {
         // WorldGuard Query
         RegionContainer container = WorldGuard.getInstance().getPlatform().getRegionContainer();
