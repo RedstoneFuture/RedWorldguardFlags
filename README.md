@@ -14,3 +14,10 @@ the [RedstoneWorld](https://redstoneworld.de) development team.
 
 ## License
 This project is licensed under the permissive [Apache 2.0 License](LICENSE).
+
+## Development
+
+### Event handling
+Note:
+`event.setCancelled(false);` means that the event will continue to be processed by WorldGuard in this context.
+`event.setCancelled(true);` means that the event is canceled and WorldGuard does not continue to do anything natively.
