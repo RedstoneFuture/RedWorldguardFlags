@@ -8,7 +8,7 @@ the [RedstoneWorld](https://redstoneworld.de) development team.
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------------------|---------------|
 | `dispense-nbt-spawneggs`   | Toggles whether spawn-eggs with custom NBT data will be dispensed                                                                     | allow         |
 | `vehicle-entity-collision` | Toggles whether players or mobs can collide with vehicles                                                                             | allow         |
-| `lectern-book-place`       | Toggles whether players can place books on lecterns                                                                                   | allow         |
+| `lectern-book-place`       | Toggles whether players can place books on lecterns (subordinate to the "build" flag)                                                 | allow         |
 | `spawnegg-use`             | Toggles whether entities can spawn when a player uses spawn-eggs (overrides the "mob-spawning" flag, subordinate to the "build" flag) | allow         |
 | `spawnegg-dispense`        | Toggles whether entities can spawn when a dispenser dispense spawn-eggs (overrides the "mob-spawning" flag)                           | allow         |
 
