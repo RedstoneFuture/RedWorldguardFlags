@@ -45,8 +45,8 @@ public class LecternBookPlaceEvent implements Listener {
         if (set.testState(null, (StateFlag) plugin.getFlags().get(StateFlag.class).get("lectern-book-place"))) {
 
             PlayerInventory playerInventory = event.getPlayer().getInventory();
-            ItemStack item = playerInventory.getItemInMainHand();
-            if ((item.getType() != Material.WRITABLE_BOOK) && (item.getType() != Material.WRITTEN_BOOK)) return;
+            ItemStack bookItemStack = playerInventory.getItemInMainHand().clone();
+            if ((bookItemStack.getType() != Material.WRITABLE_BOOK) && (bookItemStack.getType() != Material.WRITTEN_BOOK)) return;
 
             Block block = event.getClickedBlock();
             if (block == null) return;
@@ -61,12 +61,16 @@ public class LecternBookPlaceEvent implements Listener {
             Inventory inventory = holder.getInventory();
             if (!(inventory instanceof LecternInventory lecternInventory)) return;
 
-            // Only accept book placing in survival or creative mode. This is the vanilla behavior.
+            // Accept book placements only in survival or creative mode. This is the vanilla behavior.
             if (!(event.getPlayer().getGameMode() == GameMode.SURVIVAL || event.getPlayer().getGameMode() == GameMode.CREATIVE)) return;
 
-            lecternInventory.setBook(item);
-
-            if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) playerInventory.setItemInMainHand(new ItemStack(Material.AIR));
+            int originalAmount = bookItemStack.getAmount();
+            bookItemStack.setAmount(1);
+            lecternInventory.setBook(bookItemStack);
+            
+            // Remove the placed book from inventory
+            if (event.getPlayer().getGameMode() == GameMode.SURVIVAL) playerInventory.getItemInMainHand()
+                    .setAmount(originalAmount - 1);
 
             event.setCancelled(true);
         }
